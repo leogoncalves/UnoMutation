@@ -740,7 +740,7 @@ class TestUno(unittest.TestCase):
         ]
         
         inicio = '-'
-        listagem_esperada = f'Cartas: \n\t{inicio} {conjunto_inicial[0]};' + f'\n\t{inicio} {conjunto_inicial[1]};' 
+        listagem_esperada = f'\n\t{inicio} {conjunto_inicial[0]};' + f'\n\t{inicio} {conjunto_inicial[1]};' 
         print("AAAAAAAA", listagem_esperada)
         mao = Jogador(conjunto_inicial)
         listagem = main2.monta_listagem_de_cartas(mao.cartas)

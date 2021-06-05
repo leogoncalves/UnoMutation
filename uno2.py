@@ -277,7 +277,7 @@ def eh_carta_especial(carta):
 #     """
 #     if em_sentido_horario:
 #         return (idx_jogador_atual + 1) % quantidade_jogadores
-#     return abs(idx_jogador_atual - 1) % quantidade_jogadores
+#     return (idx_jogador_atual - 1) % quantidade_jogadores
 
 
 # def aplicar_carta(
