@@ -21,7 +21,7 @@
     SyntaxHighlighter.all();
     window.setTimeout(function () {
         
-        $('.line.number127').attr('title', 'COI');
+        $('.line.number148').attr('title', 'COI');
         
     }, 0);
 </script>
@@ -36,32 +36,34 @@
 <h3>Details</h3>
 <ul>
     <li>module - <code><module 'main2' from '/home/runner/Uno/main2.py'></code></li>
-    <li><span class="label label-success">killed</span> by <code>test_comprar_CT4 (test_main2.TestUno)</code></li>
+    <li><span class="label label-success">killed</span> by <code>test_jogar_CT2 (test_main2.TestUno)</code></li>
     
-    <li>duration - 0.02 s</li>
+    <li>duration - 0.041 s</li>
     
     
-    <li>tests run - 8</li>
+    <li>tests run - 14</li>
     
 </ul>
 
 <h3>Exception traceback</h3>
 <pre>Traceback (most recent call last):
-  File "/home/runner/Uno/test_main2.py", line 290, in test_comprar_CT4
-    monte_compra, monte_descarte = mao.comprar(
-  File "main2", line 132, in comprar
-  File "main2", line 44, in desempilhar
-IndexError: pop from an empty deque
+  File "/usr/lib/python3.8/unittest/mock.py", line 1325, in patched
+    return func(*newargs, **newkeywargs)
+  File "/home/runner/Uno/test_main2.py", line 524, in test_jogar_CT2
+    monte_compra, monte_descarte = mao.jogar(
+  File "main2", line 224, in jogar
+  File "main2", line 309, in eh_carta_especial
+AttributeError: 'NoneType' object has no attribute 'tipo'
 </pre>
 
 <h3>Mutations</h3>
 <ul>
     
-    <li>COI - line 127</li>
+    <li>COI - line 148</li>
     
 </ul>
 <h3>Mutant</h3>
-<pre class="brush: python; first-line: 1; highlight: [127]; toolbar: false;">'''
+<pre class="brush: python; first-line: 1; highlight: [148]; toolbar: false;">'''
 Grupo 01 - Trabalho UNO - Projeto de Teste 2020.2
 Jones Martins - DRE: 115149195
 Felipe Menescal - DRE: 113282298
@@ -135,10 +137,11 @@ def monta_listagem_de_cartas(\
     :param numerar: Numerar a listagem ou não?
     :return: String da listagem de cartas
     """
-    listagem = 'Cartas: '
+    listagem = ''
     if not cartas:
-        listagem += '*vazio*'
+        listagem = '*vazio*'
     else:
+        listagem = ''
         for (i, carta) in enumerate(cartas, start=1):
             inicio_de_linha = '-' if not numerar else f'{i})'
             nova_linha = f'
@@ -187,7 +190,7 @@ class Jogador:
         '''
         for _ in range(quantidade):
             
-            if not ((not monte_compra)):
+            if not monte_compra:
                 print('Não há cartas a comprar. 1 momento...')
                 monte_compra = Pilha(
                     random.sample(monte_descarte.como_lista(), len(monte_descarte)))
@@ -207,7 +210,7 @@ class Jogador:
         :param cartas_possiveis: Lista de cartas possíveis
         :return: Carta selecionada (ou None)
         '''
-        if not cartas_possiveis:
+        if not ((not cartas_possiveis)):
             return None
         
         idx_carta = None
@@ -262,6 +265,7 @@ Escolha uma entre {', '.join(CORES_VALIDAS)}.')
         :param monte_descarte: Monte de descarte
         '''
         global topo_esta_ativo
+        
         topo_descarte = monte_descarte.topo()
         print(f'Topo de descarte: {topo_descarte}')
         

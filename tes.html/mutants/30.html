@@ -21,7 +21,7 @@
     SyntaxHighlighter.all();
     window.setTimeout(function () {
         
-        $('.line.number107').attr('title', 'ROR');
+        $('.line.number109').attr('title', 'ROR');
         
     }, 0);
 </script>
@@ -38,7 +38,7 @@
     <li>module - <code><module 'main2' from '/home/runner/Uno/main2.py'></code></li>
     <li><span class="label label-success">killed</span> by <code>test_jogar_CTM1 (test_main2.TestUno)</code></li>
     
-    <li>duration - 0.021 s</li>
+    <li>duration - 0.051 s</li>
     
     
     <li>tests run - 15</li>
@@ -49,7 +49,7 @@
 <pre>Traceback (most recent call last):
   File "/usr/lib/python3.8/unittest/mock.py", line 1325, in patched
     return func(*newargs, **newkeywargs)
-  File "/home/runner/Uno/test_main2.py", line 586, in test_jogar_CTM1
+  File "/home/runner/Uno/test_main2.py", line 585, in test_jogar_CTM1
     self.assertEqual(len(monte_compra), 3)
 AssertionError: 4 != 3
 </pre>
@@ -57,11 +57,11 @@ AssertionError: 4 != 3
 <h3>Mutations</h3>
 <ul>
     
-    <li>ROR - line 107</li>
+    <li>ROR - line 109</li>
     
 </ul>
 <h3>Mutant</h3>
-<pre class="brush: python; first-line: 1; highlight: [107]; toolbar: false;">'''
+<pre class="brush: python; first-line: 1; highlight: [109]; toolbar: false;">'''
 Grupo 01 - Trabalho UNO - Projeto de Teste 2020.2
 Jones Martins - DRE: 115149195
 Felipe Menescal - DRE: 113282298
@@ -135,10 +135,11 @@ def monta_listagem_de_cartas(\
     :param numerar: Numerar a listagem ou não?
     :return: String da listagem de cartas
     """
-    listagem = 'Cartas: '
+    listagem = ''
     if not cartas:
-        listagem += '*vazio*'
+        listagem = '*vazio*'
     else:
+        listagem = ''
         for (i, carta) in enumerate(cartas, start=1):
             inicio_de_linha = '-' if not numerar else f'{i})'
             nova_linha = f'
@@ -167,8 +168,8 @@ class Jogador:
             :return: Cor é igual, tipo é igual ou é coringa
             '''
             cor_bate = topo.cor == carta.cor
-            tipo_bate = topo.tipo != carta.tipo
-            eh_coringa = carta.cor == '*'
+            tipo_bate = topo.tipo == carta.tipo
+            eh_coringa = carta.cor != '*'
             return (cor_bate or tipo_bate or eh_coringa)
         
         selecionadas = [carta for carta in self.cartas if filtro(topo_descarte, carta)]
@@ -262,6 +263,7 @@ Escolha uma entre {', '.join(CORES_VALIDAS)}.')
         :param monte_descarte: Monte de descarte
         '''
         global topo_esta_ativo
+        
         topo_descarte = monte_descarte.topo()
         print(f'Topo de descarte: {topo_descarte}')
         

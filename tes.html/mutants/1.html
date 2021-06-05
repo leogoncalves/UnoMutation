@@ -21,7 +21,7 @@
     SyntaxHighlighter.all();
     window.setTimeout(function () {
         
-        $('.line.number165').attr('title', 'AOR');
+        $('.line.number166').attr('title', 'AOR');
         
     }, 0);
 </script>
@@ -38,7 +38,7 @@
     <li>module - <code><module 'main2' from '/home/runner/Uno/main2.py'></code></li>
     <li><span class="label label-success">killed</span> by <code>test_jogar_CT2 (test_main2.TestUno)</code></li>
     
-    <li>duration - 0.023 s</li>
+    <li>duration - 0.022 s</li>
     
     
     <li>tests run - 14</li>
@@ -49,21 +49,21 @@
 <pre>Traceback (most recent call last):
   File "/usr/lib/python3.8/unittest/mock.py", line 1325, in patched
     return func(*newargs, **newkeywargs)
-  File "/home/runner/Uno/test_main2.py", line 525, in test_jogar_CT2
+  File "/home/runner/Uno/test_main2.py", line 524, in test_jogar_CT2
     monte_compra, monte_descarte = mao.jogar(
-  File "main2", line 220, in jogar
-  File "main2", line 167, in _escolhe_carta_possivel
+  File "main2", line 222, in jogar
+  File "main2", line 168, in _escolhe_carta_possivel
 IndexError: list index out of range
 </pre>
 
 <h3>Mutations</h3>
 <ul>
     
-    <li>AOR - line 165</li>
+    <li>AOR - line 166</li>
     
 </ul>
 <h3>Mutant</h3>
-<pre class="brush: python; first-line: 1; highlight: [165]; toolbar: false;">'''
+<pre class="brush: python; first-line: 1; highlight: [166]; toolbar: false;">'''
 Grupo 01 - Trabalho UNO - Projeto de Teste 2020.2
 Jones Martins - DRE: 115149195
 Felipe Menescal - DRE: 113282298
@@ -137,10 +137,11 @@ def monta_listagem_de_cartas(\
     :param numerar: Numerar a listagem ou não?
     :return: String da listagem de cartas
     """
-    listagem = 'Cartas: '
+    listagem = ''
     if not cartas:
-        listagem += '*vazio*'
+        listagem = '*vazio*'
     else:
+        listagem = ''
         for (i, carta) in enumerate(cartas, start=1):
             inicio_de_linha = '-' if not numerar else f'{i})'
             nova_linha = f'
@@ -264,6 +265,7 @@ Escolha uma entre {', '.join(CORES_VALIDAS)}.')
         :param monte_descarte: Monte de descarte
         '''
         global topo_esta_ativo
+        
         topo_descarte = monte_descarte.topo()
         print(f'Topo de descarte: {topo_descarte}')
         

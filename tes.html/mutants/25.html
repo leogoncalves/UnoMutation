@@ -21,7 +21,7 @@
     SyntaxHighlighter.all();
     window.setTimeout(function () {
         
-        $('.line.number25').attr('title', 'IOP');
+        $('.line.number110').attr('title', 'LCR');
         
     }, 0);
 </script>
@@ -36,23 +36,35 @@
 <h3>Details</h3>
 <ul>
     <li>module - <code><module 'main2' from '/home/runner/Uno/main2.py'></code></li>
-    <li><span class="label label-danger">survived</span></li>
+    <li><span class="label label-success">killed</span> by <code>test_jogar_CT2 (test_main2.TestUno)</code></li>
     
-    <li>duration - 0.052 s</li>
+    <li>duration - 0.042 s</li>
     
     
-    <li>tests run - 25</li>
+    <li>tests run - 14</li>
     
 </ul>
+
+<h3>Exception traceback</h3>
+<pre>Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/mock.py", line 1325, in patched
+    return func(*newargs, **newkeywargs)
+  File "/home/runner/Uno/test_main2.py", line 524, in test_jogar_CT2
+    monte_compra, monte_descarte = mao.jogar(
+  File "main2", line 214, in jogar
+  File "main2", line 135, in comprar
+  File "main2", line 44, in desempilhar
+IndexError: pop from an empty deque
+</pre>
 
 <h3>Mutations</h3>
 <ul>
     
-    <li>IOP - line 25</li>
+    <li>LCR - line 110</li>
     
 </ul>
 <h3>Mutant</h3>
-<pre class="brush: python; first-line: 1; highlight: [25]; toolbar: false;">'''
+<pre class="brush: python; first-line: 1; highlight: [110]; toolbar: false;">'''
 Grupo 01 - Trabalho UNO - Projeto de Teste 2020.2
 Jones Martins - DRE: 115149195
 Felipe Menescal - DRE: 113282298
@@ -77,8 +89,8 @@ R = TypeVar('R')
 
 class Pilha(Deque[R]):
     def __init__(self, objs):
-        self.pilha = deque(objs)
         super().__init__(objs)
+        self.pilha = deque(objs)
     
     def __len__(self) -> int:
         return len(self.pilha)
@@ -126,10 +138,11 @@ def monta_listagem_de_cartas(\
     :param numerar: Numerar a listagem ou não?
     :return: String da listagem de cartas
     """
-    listagem = 'Cartas: '
+    listagem = ''
     if not cartas:
-        listagem += '*vazio*'
+        listagem = '*vazio*'
     else:
+        listagem = ''
         for (i, carta) in enumerate(cartas, start=1):
             inicio_de_linha = '-' if not numerar else f'{i})'
             nova_linha = f'
@@ -160,7 +173,7 @@ class Jogador:
             cor_bate = topo.cor == carta.cor
             tipo_bate = topo.tipo == carta.tipo
             eh_coringa = carta.cor == '*'
-            return (cor_bate or tipo_bate or eh_coringa)
+            return (cor_bate and tipo_bate and eh_coringa)
         
         selecionadas = [carta for carta in self.cartas if filtro(topo_descarte, carta)]
         
@@ -253,6 +266,7 @@ Escolha uma entre {', '.join(CORES_VALIDAS)}.')
         :param monte_descarte: Monte de descarte
         '''
         global topo_esta_ativo
+        
         topo_descarte = monte_descarte.topo()
         print(f'Topo de descarte: {topo_descarte}')
         

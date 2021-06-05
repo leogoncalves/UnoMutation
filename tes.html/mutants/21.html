@@ -21,7 +21,7 @@
     SyntaxHighlighter.all();
     window.setTimeout(function () {
         
-        $('.line.number223').attr('title', 'COI');
+        $('.line.number309').attr('title', 'COI');
         
     }, 0);
 </script>
@@ -38,7 +38,7 @@
     <li>module - <code><module 'main2' from '/home/runner/Uno/main2.py'></code></li>
     <li><span class="label label-success">killed</span> by <code>test_jogar_CTM2 (test_main2.TestUno)</code></li>
     
-    <li>duration - 0.03 s</li>
+    <li>duration - 0.023 s</li>
     
     
     <li>tests run - 16</li>
@@ -49,27 +49,19 @@
 <pre>Traceback (most recent call last):
   File "/usr/lib/python3.8/unittest/mock.py", line 1325, in patched
     return func(*newargs, **newkeywargs)
-  File "/home/runner/Uno/test_main2.py", line 617, in test_jogar_CTM2
-    monte_compra, monte_descarte = mao.jogar(
-  File "main2", line 224, in jogar
-  File "main2", line 185, in escolhe_cor_de_coringa
-  File "/usr/lib/python3.8/unittest/mock.py", line 1081, in __call__
-    return self._mock_call(*args, **kwargs)
-  File "/usr/lib/python3.8/unittest/mock.py", line 1085, in _mock_call
-    return self._execute_mock_call(*args, **kwargs)
-  File "/usr/lib/python3.8/unittest/mock.py", line 1142, in _execute_mock_call
-    result = next(effect)
-StopIteration
+  File "/home/runner/Uno/test_main2.py", line 624, in test_jogar_CTM2
+    self.assertTrue(main2.topo_esta_ativo)
+AssertionError: False is not true
 </pre>
 
 <h3>Mutations</h3>
 <ul>
     
-    <li>COI - line 223</li>
+    <li>COI - line 309</li>
     
 </ul>
 <h3>Mutant</h3>
-<pre class="brush: python; first-line: 1; highlight: [223]; toolbar: false;">'''
+<pre class="brush: python; first-line: 1; highlight: [309]; toolbar: false;">'''
 Grupo 01 - Trabalho UNO - Projeto de Teste 2020.2
 Jones Martins - DRE: 115149195
 Felipe Menescal - DRE: 113282298
@@ -143,10 +135,11 @@ def monta_listagem_de_cartas(\
     :param numerar: Numerar a listagem ou não?
     :return: String da listagem de cartas
     """
-    listagem = 'Cartas: '
+    listagem = ''
     if not cartas:
-        listagem += '*vazio*'
+        listagem = '*vazio*'
     else:
+        listagem = ''
         for (i, carta) in enumerate(cartas, start=1):
             inicio_de_linha = '-' if not numerar else f'{i})'
             nova_linha = f'
@@ -270,6 +263,7 @@ Escolha uma entre {', '.join(CORES_VALIDAS)}.')
         :param monte_descarte: Monte de descarte
         '''
         global topo_esta_ativo
+        
         topo_descarte = monte_descarte.topo()
         print(f'Topo de descarte: {topo_descarte}')
         
@@ -291,7 +285,7 @@ Escolha uma entre {', '.join(CORES_VALIDAS)}.')
         carta_escolhida = self._escolhe_carta_possivel(cartas_possiveis)
         carta_2b_removed = carta_escolhida
         if eh_carta_especial(carta_escolhida):
-            if carta_escolhida.tipo not in ('coringa', '+4 coringa'):
+            if carta_escolhida.tipo in ('coringa', '+4 coringa'):
                 cor_coringa = self.escolhe_cor_de_coringa()
                 carta_escolhida = carta_escolhida._replace(cor=cor_coringa)
             
@@ -375,7 +369,7 @@ Escolha uma entre {', '.join(CORES_VALIDAS)}.')
 
 
 def eh_carta_especial(carta: Carta) -> bool:
-    return carta.tipo in ('inverter', 'pular', '+2', 'coringa', '+4 coringa')</pre>
+    return carta.tipo not in ('inverter', 'pular', '+2', 'coringa', '+4 coringa')</pre>
 
     </div>
 </body>

@@ -21,7 +21,7 @@
     SyntaxHighlighter.all();
     window.setTimeout(function () {
         
-        $('.line.number25').attr('title', 'IOD');
+        $('.line.number29').attr('title', 'IOD');
         
     }, 0);
 </script>
@@ -36,33 +36,30 @@
 <h3>Details</h3>
 <ul>
     <li>module - <code><module 'main2' from '/home/runner/Uno/main2.py'></code></li>
-    <li><span class="label label-success">killed</span> by <code>test_ECC_CTM1 (test_main2.TestUno)</code></li>
+    <li><span class="label label-success">killed</span> by <code>test_comprar_CT4 (test_main2.TestUno)</code></li>
     
-    <li>duration - 0.016 s</li>
+    <li>duration - 0.02 s</li>
     
     
-    <li>tests run - 1</li>
+    <li>tests run - 8</li>
     
 </ul>
 
 <h3>Exception traceback</h3>
 <pre>Traceback (most recent call last):
-  File "/usr/lib/python3.8/unittest/mock.py", line 1325, in patched
-    return func(*newargs, **newkeywargs)
-  File "/home/runner/Uno/test_main2.py", line 730, in test_ECC_CTM1
-    topo = monte_descarte.topo()
-  File "main2", line 33, in topo
-AttributeError: 'Pilha' object has no attribute 'pilha'
+  File "/home/runner/Uno/test_main2.py", line 298, in test_comprar_CT4
+    self.assertEqual(
+AssertionError: 4 != 3
 </pre>
 
 <h3>Mutations</h3>
 <ul>
     
-    <li>IOD - line 25</li>
+    <li>IOD - line 29</li>
     
 </ul>
 <h3>Mutant</h3>
-<pre class="brush: python; first-line: 1; highlight: [25]; toolbar: false;">'''
+<pre class="brush: python; first-line: 1; highlight: [29]; toolbar: false;">'''
 Grupo 01 - Trabalho UNO - Projeto de Teste 2020.2
 Jones Martins - DRE: 115149195
 Felipe Menescal - DRE: 113282298
@@ -86,12 +83,12 @@ R = TypeVar('R')
 
 
 class Pilha(Deque[R]):
+    def __init__(self, objs):
+        super().__init__(objs)
+        self.pilha = deque(objs)
+    
     pass
     
-    
-    
-    def __len__(self) -> int:
-        return len(self.pilha)
     
     def topo(self) -> R:
         copia = self.pilha[0]
@@ -136,10 +133,11 @@ def monta_listagem_de_cartas(\
     :param numerar: Numerar a listagem ou não?
     :return: String da listagem de cartas
     """
-    listagem = 'Cartas: '
+    listagem = ''
     if not cartas:
-        listagem += '*vazio*'
+        listagem = '*vazio*'
     else:
+        listagem = ''
         for (i, carta) in enumerate(cartas, start=1):
             inicio_de_linha = '-' if not numerar else f'{i})'
             nova_linha = f'
@@ -263,6 +261,7 @@ Escolha uma entre {', '.join(CORES_VALIDAS)}.')
         :param monte_descarte: Monte de descarte
         '''
         global topo_esta_ativo
+        
         topo_descarte = monte_descarte.topo()
         print(f'Topo de descarte: {topo_descarte}')
         

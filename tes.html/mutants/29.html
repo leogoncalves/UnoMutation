@@ -21,7 +21,7 @@
     SyntaxHighlighter.all();
     window.setTimeout(function () {
         
-        $('.line.number106').attr('title', 'ROR');
+        $('.line.number108').attr('title', 'ROR');
         
     }, 0);
 </script>
@@ -36,12 +36,12 @@
 <h3>Details</h3>
 <ul>
     <li>module - <code><module 'main2' from '/home/runner/Uno/main2.py'></code></li>
-    <li><span class="label label-success">killed</span> by <code>test_jogar_CT2 (test_main2.TestUno)</code></li>
+    <li><span class="label label-success">killed</span> by <code>test_jogar_CTM1 (test_main2.TestUno)</code></li>
     
-    <li>duration - 0.019 s</li>
+    <li>duration - 0.028 s</li>
     
     
-    <li>tests run - 14</li>
+    <li>tests run - 15</li>
     
 </ul>
 
@@ -49,19 +49,19 @@
 <pre>Traceback (most recent call last):
   File "/usr/lib/python3.8/unittest/mock.py", line 1325, in patched
     return func(*newargs, **newkeywargs)
-  File "/home/runner/Uno/test_main2.py", line 530, in test_jogar_CT2
-    self.assertEqual(len(monte_compra), 4)
-AssertionError: 3 != 4
+  File "/home/runner/Uno/test_main2.py", line 585, in test_jogar_CTM1
+    self.assertEqual(len(monte_compra), 3)
+AssertionError: 4 != 3
 </pre>
 
 <h3>Mutations</h3>
 <ul>
     
-    <li>ROR - line 106</li>
+    <li>ROR - line 108</li>
     
 </ul>
 <h3>Mutant</h3>
-<pre class="brush: python; first-line: 1; highlight: [106]; toolbar: false;">'''
+<pre class="brush: python; first-line: 1; highlight: [108]; toolbar: false;">'''
 Grupo 01 - Trabalho UNO - Projeto de Teste 2020.2
 Jones Martins - DRE: 115149195
 Felipe Menescal - DRE: 113282298
@@ -135,10 +135,11 @@ def monta_listagem_de_cartas(\
     :param numerar: Numerar a listagem ou não?
     :return: String da listagem de cartas
     """
-    listagem = 'Cartas: '
+    listagem = ''
     if not cartas:
-        listagem += '*vazio*'
+        listagem = '*vazio*'
     else:
+        listagem = ''
         for (i, carta) in enumerate(cartas, start=1):
             inicio_de_linha = '-' if not numerar else f'{i})'
             nova_linha = f'
@@ -166,8 +167,8 @@ class Jogador:
             :param carta: Carta da mão para comparação
             :return: Cor é igual, tipo é igual ou é coringa
             '''
-            cor_bate = topo.cor != carta.cor
-            tipo_bate = topo.tipo == carta.tipo
+            cor_bate = topo.cor == carta.cor
+            tipo_bate = topo.tipo != carta.tipo
             eh_coringa = carta.cor == '*'
             return (cor_bate or tipo_bate or eh_coringa)
         
@@ -262,6 +263,7 @@ Escolha uma entre {', '.join(CORES_VALIDAS)}.')
         :param monte_descarte: Monte de descarte
         '''
         global topo_esta_ativo
+        
         topo_descarte = monte_descarte.topo()
         print(f'Topo de descarte: {topo_descarte}')
         

@@ -21,7 +21,7 @@
     SyntaxHighlighter.all();
     window.setTimeout(function () {
         
-        $('.line.number77').attr('title', 'ASR');
+        $('.line.number83').attr('title', 'ASR');
         
     }, 0);
 </script>
@@ -36,23 +36,21 @@
 <h3>Details</h3>
 <ul>
     <li>module - <code><module 'main2' from '/home/runner/Uno/main2.py'></code></li>
-    <li><span class="label label-danger">survived</span></li>
+    <li><span class="label label-info">timeout</span></li>
     
-    <li>duration - 0.013 s</li>
+    <li>duration - 5.006 s</li>
     
-    
-    <li>tests run - 25</li>
     
 </ul>
 
 <h3>Mutations</h3>
 <ul>
     
-    <li>ASR - line 77</li>
+    <li>ASR - line 83</li>
     
 </ul>
 <h3>Mutant</h3>
-<pre class="brush: python; first-line: 1; highlight: [77]; toolbar: false;">'''
+<pre class="brush: python; first-line: 1; highlight: [83]; toolbar: false;">'''
 Grupo 01 - Trabalho UNO - Projeto de Teste 2020.2
 Jones Martins - DRE: 115149195
 Felipe Menescal - DRE: 113282298
@@ -126,14 +124,15 @@ def monta_listagem_de_cartas(\
     :param numerar: Numerar a listagem ou não?
     :return: String da listagem de cartas
     """
-    listagem = 'Cartas: '
+    listagem = ''
     if not cartas:
-        listagem -= '*vazio*'
+        listagem = '*vazio*'
     else:
+        listagem = ''
         for (i, carta) in enumerate(cartas, start=1):
             inicio_de_linha = '-' if not numerar else f'{i})'
             nova_linha = f'
-	{inicio_de_linha} {carta};'listagem += nova_linha
+	{inicio_de_linha} {carta};'listagem -= nova_linha
     
     return listagem
 
@@ -253,6 +252,7 @@ Escolha uma entre {', '.join(CORES_VALIDAS)}.')
         :param monte_descarte: Monte de descarte
         '''
         global topo_esta_ativo
+        
         topo_descarte = monte_descarte.topo()
         print(f'Topo de descarte: {topo_descarte}')
         
