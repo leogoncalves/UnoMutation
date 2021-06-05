@@ -741,10 +741,10 @@ class TestUno(unittest.TestCase):
         
         inicio = '-'
         listagem_esperada = f'Cartas: \n\t{inicio} {conjunto_inicial[0]};' + f'\n\t{inicio} {conjunto_inicial[1]};' 
-        print(listagem_esperada)
+        print("AAAAAAAA", listagem_esperada)
         mao = Jogador(conjunto_inicial)
         listagem = main2.monta_listagem_de_cartas(mao.cartas)
-        print(listagem)
+        print("BBBBBBBB", listagem)
         self.assertEqual(listagem, listagem_esperada)
         
     # def test_MLC_CTM2(self):
