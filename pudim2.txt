@@ -1,0 +1,1192 @@
+[34m[*][0m Start mutation process:
+[36m   -[0m targets: uno2.py
+[36m   -[0m tests: test_uno2.py
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Topo de descarte: Carta(cor=azul, tipo=3)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Não há cartas possíveis de se jogar. Vamos comprar uma.
+Cartas possíveis:
+
+	1) Carta(cor=vermelho, tipo=3);
+Cartas possíveis
+
+	1) Carta(cor=vermelho, tipo=3);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=inverter);
+	2) Carta(cor=vermelho, tipo=pular);
+Cartas possíveis:
+
+	1) Carta(cor=vermelho, tipo=pular);
+Cartas possíveis
+
+	1) Carta(cor=vermelho, tipo=pular);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=*, tipo=coringa);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=*, tipo=coringa);
+Cartas possíveis
+
+	1) Carta(cor=*, tipo=coringa);
+[34m[*][0m 25 tests passed:
+[36m   -[0m test_uno2 [0.02367 s]
+[34m[*][0m Start mutants generation and execution:
+[36m   -[0m [#   1] AOR uno2: 
+--------------------------------------------------------------------------------
+  179:                 (idx_carta_str and \
+  180:                 1 <= int(idx_carta_str) <= len(cartas_possiveis))
+  181:             
+  182:             if (eh_decimal and eh_valor_valido):
+[34m- 183:                 return cartas_possiveis[int(idx_carta_str) - 1][0m
+[32m+ 183:                 return cartas_possiveis[int(idx_carta_str) + 1][0m
+  184:     
+  185:     def jogar(self, carta: Carta, monte_descarte: Pilha[Carta]) -> Pilha[Carta]:
+  186:         '''
+  187:         Tira uma carta da mão e coloca no monte de descarte.
+--------------------------------------------------------------------------------
+[0.05322 s] [32mkilled[0m by test_jogar_CT2 (test_uno2.TestUno)
+[36m   -[0m [#   2] ASR uno2: 
+--------------------------------------------------------------------------------
+   75:     """
+   76:     
+   77:     listagem = ''
+   78:     if not cartas:
+[34m-  79:         listagem += '*vazio*'[0m
+[32m+  79:         listagem -= '*vazio*'[0m
+   80:     else:
+   81:         for (i, carta) in enumerate(cartas, start=1):
+   82:             inicio_de_linha = '-' if not enumerar else f'{i})'
+   83:             nova_linha = f'
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Topo de descarte: Carta(cor=azul, tipo=3)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Não há cartas possíveis de se jogar. Vamos comprar uma.
+Cartas possíveis:
+
+	1) Carta(cor=vermelho, tipo=3);
+Cartas possíveis
+
+	1) Carta(cor=vermelho, tipo=3);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=inverter);
+	2) Carta(cor=vermelho, tipo=pular);
+Cartas possíveis:
+
+	1) Carta(cor=vermelho, tipo=pular);
+Cartas possíveis
+
+	1) Carta(cor=vermelho, tipo=pular);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=*, tipo=coringa);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=*, tipo=coringa);
+Cartas possíveis
+
+	1) Carta(cor=*, tipo=coringa);
+[0.01955 s] [31msurvived[0m
+[36m   -[0m [#   3] ASR uno2: 
+--------------------------------------------------------------------------------
+   80:     else:
+   81:         for (i, carta) in enumerate(cartas, start=1):
+   82:             inicio_de_linha = '-' if not enumerar else f'{i})'
+   83:             nova_linha = f'
+[34m-  84: 	{inicio_de_linha} {carta};'listagem += nova_linha[0m
+[32m+  84: 	{inicio_de_linha} {carta};'listagem -= nova_linha[0m
+   85:     
+   86:     return listagem
+   87: 
+   88: 
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Topo de descarte: Carta(cor=azul, tipo=3)
+Suas cartas:
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+[5.00618 s] [33mtimeout[0m
+[36m   -[0m [#   4] COD uno2: 
+--------------------------------------------------------------------------------
+   74:     :return: String da listagem de cartas
+   75:     """
+   76:     
+   77:     listagem = ''
+[34m-  78:     if not cartas:[0m
+[32m+  78:     if cartas:[0m
+   79:         listagem += '*vazio*'
+   80:     else:
+   81:         for (i, carta) in enumerate(cartas, start=1):
+   82:             inicio_de_linha = '-' if not enumerar else f'{i})'
+--------------------------------------------------------------------------------
+[0.02594 s] [32mkilled[0m by test_MLC_CTM1 (test_uno2.TestUno)
+[36m   -[0m [#   5] COD uno2: 
+--------------------------------------------------------------------------------
+   78:     if not cartas:
+   79:         listagem += '*vazio*'
+   80:     else:
+   81:         for (i, carta) in enumerate(cartas, start=1):
+[34m-  82:             inicio_de_linha = '-' if not enumerar else f'{i})'[0m
+[32m+  82:             inicio_de_linha = '-' if enumerar else f'{i})'[0m
+   83:             nova_linha = f'
+   84: 	{inicio_de_linha} {carta};'listagem += nova_linha
+   85:     
+   86:     return listagem
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	1) Carta(cor=azul, tipo=1);
+	2) Carta(cor=azul, tipo=inverter);
+[0.01745 s] [32mkilled[0m by test_MLC_CTM1 (test_uno2.TestUno)
+[36m   -[0m [#   6] COD uno2: 
+--------------------------------------------------------------------------------
+  132:         :param quantidade: Quantidade de cartas a comprar
+  133:         '''
+  134:         for _ in range(quantidade):
+  135:             
+[34m- 136:             if not monte_compra:[0m
+[32m+ 136:             if monte_compra:[0m
+  137:                 print('Não há cartas a comprar. 1 momento...')
+  138:                 monte_compra = Pilha(
+  139:                     random.sample(monte_descarte.como_lista(), 
+  140:                     len(monte_descarte)))
+--------------------------------------------------------------------------------
+[0.01746 s] [32mkilled[0m by test_comprar_CT4 (test_uno2.TestUno)
+[36m   -[0m [#   7] COD uno2: 
+--------------------------------------------------------------------------------
+  156:         Retorna None caso não tenham cartas, mas é esperado que se tenha.
+  157:         :param cartas_possiveis: Lista de cartas possíveis
+  158:         :return: Carta selecionada (ou None)
+  159:         '''
+[34m- 160:         if not cartas_possiveis:[0m
+[32m+ 160:         if cartas_possiveis:[0m
+  161:             return None
+  162:         
+  163:         idx_carta = None
+  164:         
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Topo de descarte: Carta(cor=azul, tipo=3)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+[0.01499 s] [32mkilled[0m by test_jogar_CT2 (test_uno2.TestUno)
+[36m   -[0m [#   8] COD uno2: 
+--------------------------------------------------------------------------------
+  198:         Escolhe uma das 4 cores de coringa.
+  199:         :return: Cor escolhida
+  200:         '''
+  201:         cor_escolhida = None
+[34m- 202:         while cor_escolhida not in CORES_VALIDAS:[0m
+[32m+ 202:         while cor_escolhida in CORES_VALIDAS:[0m
+  203:             cor_escolhida = input('Escolha uma cor: ').lower()
+  204:             if cor_escolhida not in CORES_VALIDAS:
+  205:                 print(
+  206:                     f'Cor inválida.
+--------------------------------------------------------------------------------
+[0.01876 s] [32mkilled[0m by test_ECDC_CTM1 (test_uno2.TestUno)
+[36m   -[0m [#   9] COD uno2: 
+--------------------------------------------------------------------------------
+  200:         '''
+  201:         cor_escolhida = None
+  202:         while cor_escolhida not in CORES_VALIDAS:
+  203:             cor_escolhida = input('Escolha uma cor: ').lower()
+[34m- 204:             if cor_escolhida not in CORES_VALIDAS:[0m
+[32m+ 204:             if cor_escolhida in CORES_VALIDAS:[0m
+  205:                 print(
+  206:                     f'Cor inválida.
+  207: Escolha uma entre {', '.join(CORES_VALIDAS)}.')
+  208:         
+--------------------------------------------------------------------------------
+[0.02600 s] [31msurvived[0m
+[36m   -[0m [#  10] COD uno2: 
+--------------------------------------------------------------------------------
+  225:         
+  226:         
+  227:         
+  228:         cartas_possiveis = self.selecionar(topo_descarte)
+[34m- 229:         if not cartas_possiveis:[0m
+[32m+ 229:         if cartas_possiveis:[0m
+  230:             print('Não há cartas possíveis de se jogar. Vamos comprar uma.')
+  231:             (monte_compra, monte_descarte) = self.comprar(monte_compra, 
+  232:                 monte_descarte, quantidade=\
+  233:                 1)
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Topo de descarte: Carta(cor=azul, tipo=3)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Não há cartas possíveis de se jogar. Vamos comprar uma.
+Cartas possíveis:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+	3) Carta(cor=vermelho, tipo=3);
+Cartas possíveis
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+	3) Carta(cor=vermelho, tipo=3);
+[0.02717 s] [32mkilled[0m by test_jogar_CT2 (test_uno2.TestUno)
+[36m   -[0m [#  11] COD uno2: 
+--------------------------------------------------------------------------------
+  234:             
+  235:             
+  236:             cartas_possiveis = self.selecionar(topo_descarte)
+  237:         
+[34m- 238:         if not cartas_possiveis:[0m
+[32m+ 238:         if cartas_possiveis:[0m
+  239:             print('Carta comprada incompatível.')
+  240:             return (monte_compra, monte_descarte, topo_esta_ativo)
+  241:         else:
+  242:             print('Cartas possíveis:')
+--------------------------------------------------------------------------------
+[0.02528 s] [32mkilled[0m by test_jogar_CT2 (test_uno2.TestUno)
+[36m   -[0m [#  12] COI uno2: 
+--------------------------------------------------------------------------------
+   74:     :return: String da listagem de cartas
+   75:     """
+   76:     
+   77:     listagem = ''
+[34m-  78:     if not cartas:[0m
+[32m+  78:     if not ((not cartas)):[0m
+   79:         listagem += '*vazio*'
+   80:     else:
+   81:         for (i, carta) in enumerate(cartas, start=1):
+   82:             inicio_de_linha = '-' if not enumerar else f'{i})'
+--------------------------------------------------------------------------------
+[0.01630 s] [32mkilled[0m by test_MLC_CTM1 (test_uno2.TestUno)
+[36m   -[0m [#  13] COI uno2: 
+--------------------------------------------------------------------------------
+  132:         :param quantidade: Quantidade de cartas a comprar
+  133:         '''
+  134:         for _ in range(quantidade):
+  135:             
+[34m- 136:             if not monte_compra:[0m
+[32m+ 136:             if not ((not monte_compra)):[0m
+  137:                 print('Não há cartas a comprar. 1 momento...')
+  138:                 monte_compra = Pilha(
+  139:                     random.sample(monte_descarte.como_lista(), 
+  140:                     len(monte_descarte)))
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+[0.05833 s] [32mkilled[0m by test_comprar_CT4 (test_uno2.TestUno)
+[36m   -[0m [#  14] COI uno2: 
+--------------------------------------------------------------------------------
+  156:         Retorna None caso não tenham cartas, mas é esperado que se tenha.
+  157:         :param cartas_possiveis: Lista de cartas possíveis
+  158:         :return: Carta selecionada (ou None)
+  159:         '''
+[34m- 160:         if not cartas_possiveis:[0m
+[32m+ 160:         if not ((not cartas_possiveis)):[0m
+  161:             return None
+  162:         
+  163:         idx_carta = None
+  164:         
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Topo de descarte: Carta(cor=azul, tipo=3)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+[0.03182 s] [32mkilled[0m by test_jogar_CT2 (test_uno2.TestUno)
+[36m   -[0m [#  15] COI uno2: 
+--------------------------------------------------------------------------------
+  166:         listagem_de_cartas = montar_listagem_de_cartas(
+  167:             cartas_possiveis, enumerar=\
+  168:             True)
+  169:         
+[34m- 170:         while idx_carta is None:[0m
+[32m+ 170:         while not (idx_carta is None):[0m
+  171:             print(listagem_de_cartas)
+  172:             
+  173:             idx_carta_str = input(
+  174:                 f'Selecione a carta [1, {len(cartas_possiveis)}]: ')
+--------------------------------------------------------------------------------
+[0.01517 s] [32mkilled[0m by test_jogar_CT2 (test_uno2.TestUno)
+[36m   -[0m [#  16] COI uno2: 
+--------------------------------------------------------------------------------
+  178:             eh_valor_valido = \
+  179:                 (idx_carta_str and \
+  180:                 1 <= int(idx_carta_str) <= len(cartas_possiveis))
+  181:             
+[34m- 182:             if (eh_decimal and eh_valor_valido):[0m
+[32m+ 182:             if not ((eh_decimal and eh_valor_valido)):[0m
+  183:                 return cartas_possiveis[int(idx_carta_str) - 1]
+  184:     
+  185:     def jogar(self, carta: Carta, monte_descarte: Pilha[Carta]) -> Pilha[Carta]:
+  186:         '''
+--------------------------------------------------------------------------------
+[0.05252 s] [32mkilled[0m by test_jogar_CT2 (test_uno2.TestUno)
+[36m   -[0m [#  17] COI uno2: 
+--------------------------------------------------------------------------------
+  198:         Escolhe uma das 4 cores de coringa.
+  199:         :return: Cor escolhida
+  200:         '''
+  201:         cor_escolhida = None
+[34m- 202:         while cor_escolhida not in CORES_VALIDAS:[0m
+[32m+ 202:         while not (cor_escolhida not in CORES_VALIDAS):[0m
+  203:             cor_escolhida = input('Escolha uma cor: ').lower()
+  204:             if cor_escolhida not in CORES_VALIDAS:
+  205:                 print(
+  206:                     f'Cor inválida.
+--------------------------------------------------------------------------------
+[0.01484 s] [32mkilled[0m by test_ECDC_CTM1 (test_uno2.TestUno)
+[36m   -[0m [#  18] COI uno2: 
+--------------------------------------------------------------------------------
+  200:         '''
+  201:         cor_escolhida = None
+  202:         while cor_escolhida not in CORES_VALIDAS:
+  203:             cor_escolhida = input('Escolha uma cor: ').lower()
+[34m- 204:             if cor_escolhida not in CORES_VALIDAS:[0m
+[32m+ 204:             if not (cor_escolhida not in CORES_VALIDAS):[0m
+  205:                 print(
+  206:                     f'Cor inválida.
+  207: Escolha uma entre {', '.join(CORES_VALIDAS)}.')
+  208:         
+--------------------------------------------------------------------------------
+[0.01782 s] [31msurvived[0m
+[36m   -[0m [#  19] COI uno2: 
+--------------------------------------------------------------------------------
+  225:         
+  226:         
+  227:         
+  228:         cartas_possiveis = self.selecionar(topo_descarte)
+[34m- 229:         if not cartas_possiveis:[0m
+[32m+ 229:         if not ((not cartas_possiveis)):[0m
+  230:             print('Não há cartas possíveis de se jogar. Vamos comprar uma.')
+  231:             (monte_compra, monte_descarte) = self.comprar(monte_compra, 
+  232:                 monte_descarte, quantidade=\
+  233:                 1)
+--------------------------------------------------------------------------------
+[0.03505 s] [32mkilled[0m by test_jogar_CT2 (test_uno2.TestUno)
+[36m   -[0m [#  20] COI uno2: 
+--------------------------------------------------------------------------------
+  234:             
+  235:             
+  236:             cartas_possiveis = self.selecionar(topo_descarte)
+  237:         
+[34m- 238:         if not cartas_possiveis:[0m
+[32m+ 238:         if not ((not cartas_possiveis)):[0m
+  239:             print('Carta comprada incompatível.')
+  240:             return (monte_compra, monte_descarte, topo_esta_ativo)
+  241:         else:
+  242:             print('Cartas possíveis:')
+--------------------------------------------------------------------------------
+[0.02433 s] [32mkilled[0m by test_jogar_CT2 (test_uno2.TestUno)
+[36m   -[0m [#  21] COI uno2: 
+--------------------------------------------------------------------------------
+  247:             
+  248:             
+  249:             
+  250:             carta_escolhida = self.escolhe_carta_possivel(cartas_possiveis)
+[34m- 251:             if eh_carta_especial(carta_escolhida):[0m
+[32m+ 251:             if not (eh_carta_especial(carta_escolhida)):[0m
+  252:                 if carta_escolhida.tipo in ('coringa', '+4 coringa'):
+  253:                     cor_coringa = self.escolhe_cor_de_coringa()
+  254:                     carta_escolhida.cor = cor_coringa
+  255:                 
+--------------------------------------------------------------------------------
+[0.10971 s] [32mkilled[0m by test_jogar_CTM2 (test_uno2.TestUno)
+[36m   -[0m [#  22] COI uno2: 
+--------------------------------------------------------------------------------
+  248:             
+  249:             
+  250:             carta_escolhida = self.escolhe_carta_possivel(cartas_possiveis)
+  251:             if eh_carta_especial(carta_escolhida):
+[34m- 252:                 if carta_escolhida.tipo in ('coringa', '+4 coringa'):[0m
+[32m+ 252:                 if not (carta_escolhida.tipo in ('coringa', '+4 coringa')):[0m
+  253:                     cor_coringa = self.escolhe_cor_de_coringa()
+  254:                     carta_escolhida.cor = cor_coringa
+  255:                 
+  256:                 topo_esta_ativo = True
+--------------------------------------------------------------------------------
+[0.02008 s] [32mkilled[0m by test_jogar_CTM2 (test_uno2.TestUno)
+[36m   -[0m [#  23] COI uno2: 
+--------------------------------------------------------------------------------
+  248:             
+  249:             
+  250:             carta_escolhida = self.escolhe_carta_possivel(cartas_possiveis)
+  251:             if eh_carta_especial(carta_escolhida):
+[34m- 252:                 if carta_escolhida.tipo in ('coringa', '+4 coringa'):[0m
+[32m+ 252:                 if carta_escolhida.tipo not in ('coringa', '+4 coringa'):[0m
+  253:                     cor_coringa = self.escolhe_cor_de_coringa()
+  254:                     carta_escolhida.cor = cor_coringa
+  255:                 
+  256:                 topo_esta_ativo = True
+--------------------------------------------------------------------------------
+[0.03407 s] [32mkilled[0m by test_jogar_CTM2 (test_uno2.TestUno)
+[36m   -[0m [#  24] COI uno2: 
+--------------------------------------------------------------------------------
+  260:         return (monte_compra, monte_descarte, topo_esta_ativo)
+  261: 
+  262: 
+  263: def eh_carta_especial(carta):
+[34m- 264:     return carta.tipo in ('inverter', 'pular', '+2', 'coringa', '+4 coringa')[0m
+[32m+ 264:     return carta.tipo not in ('inverter', 'pular', '+2', 'coringa', '+4 coringa')[0m
+--------------------------------------------------------------------------------
+[0.05212 s] [32mkilled[0m by test_jogar_CTM2 (test_uno2.TestUno)
+[36m   -[0m [#  25] DDL uno2: 
+--------------------------------------------------------------------------------
+  147:         
+  148:         return (monte_compra, monte_descarte)
+  149:     
+  150:     
+[34m- 151:     @staticmethod[0m
+[34m- 152:     def escolhe_carta_possivel(cartas_possiveis: List[Carta]) -> \[0m
+[32m+ 151:     def escolhe_carta_possivel(\[0m
+[32m+ 152:         cartas_possiveis: List[Carta]) -> \[0m
+  153:         Optional[Carta]:
+  154:         '''
+  155:         Escolhe uma carta das várias cartas possíveis.
+  156:         Retorna None caso não tenham cartas, mas é esperado que se tenha.
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Topo de descarte: Carta(cor=azul, tipo=3)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Não há cartas possíveis de se jogar. Vamos comprar uma.
+Cartas possíveis:
+
+	1) Carta(cor=vermelho, tipo=3);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=inverter);
+	2) Carta(cor=vermelho, tipo=pular);
+Cartas possíveis:
+
+	1) Carta(cor=vermelho, tipo=pular);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=*, tipo=coringa);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=*, tipo=coringa);
+[5.01179 s] [33mtimeout[0m
+[36m   -[0m [#  26] DDL uno2: 
+--------------------------------------------------------------------------------
+  192:         monte_descarte = monte_descarte.empilhar(carta)
+  193:         return monte_descarte
+  194:     
+  195:     
+[34m- 196:     @staticmethod[0m
+[34m- 197:     def escolhe_cor_de_coringa():'''[0m
+[32m+ 196:     def escolhe_cor_de_coringa():[0m
+[32m+ 197:         '''[0m
+  198:         Escolhe uma das 4 cores de coringa.
+  199:         :return: Cor escolhida
+  200:         '''
+  201:         cor_escolhida = None
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Topo de descarte: Carta(cor=azul, tipo=3)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Não há cartas possíveis de se jogar. Vamos comprar uma.
+Cartas possíveis:
+
+	1) Carta(cor=vermelho, tipo=3);
+Cartas possíveis
+
+	1) Carta(cor=vermelho, tipo=3);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=inverter);
+	2) Carta(cor=vermelho, tipo=pular);
+Cartas possíveis:
+
+	1) Carta(cor=vermelho, tipo=pular);
+Cartas possíveis
+
+	1) Carta(cor=vermelho, tipo=pular);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=*, tipo=coringa);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=*, tipo=coringa);
+Cartas possíveis
+
+	1) Carta(cor=*, tipo=coringa);
+[5.00788 s] [33mtimeout[0m
+[36m   -[0m [#  27] IOD uno2: 
+--------------------------------------------------------------------------------
+   16: R = TypeVar('R')
+   17: 
+   18: 
+   19: class Pilha(Deque[R]):
+[34m-  20:     def __init__(self, objs):[0m
+[34m-  21:         super().__init__(objs)[0m
+[34m-  22:         self.pilha = deque(objs)[0m
+[32m+  20:     pass[0m
+[32m+  21:     [0m
+[32m+  22:     [0m
+   23:     
+   24:     def __len__(self) -> int:
+   25:         return len(self.pilha)
+   26:     
+--------------------------------------------------------------------------------
+[0.02708 s] [32mkilled[0m by test_ECC_CTM1 (test_uno2.TestUno)
+[36m   -[0m [#  28] IOD uno2: 
+--------------------------------------------------------------------------------
+   20:     def __init__(self, objs):
+   21:         super().__init__(objs)
+   22:         self.pilha = deque(objs)
+   23:     
+[34m-  24:     def __len__(self) -> int:[0m
+[34m-  25:         return len(self.pilha)[0m
+[32m+  24:     pass[0m
+[32m+  25:     [0m
+   26:     
+   27:     def topo(self) -> R:
+   28:         return self.pilha[0]
+   29:     
+--------------------------------------------------------------------------------
+[0.02369 s] [31msurvived[0m
+[36m   -[0m [#  29] IOP uno2: 
+--------------------------------------------------------------------------------
+   17: 
+   18: 
+   19: class Pilha(Deque[R]):
+   20:     def __init__(self, objs):
+[34m-  21:         super().__init__(objs)[0m
+[34m-  22:         self.pilha = deque(objs)[0m
+[32m+  21:         self.pilha = deque(objs)[0m
+[32m+  22:         super().__init__(objs)[0m
+   23:     
+   24:     def __len__(self) -> int:
+   25:         return len(self.pilha)
+   26:     
+--------------------------------------------------------------------------------
+[0.02037 s] [31msurvived[0m
+[36m   -[0m [#  30] LCR uno2: 
+--------------------------------------------------------------------------------
+  107:             '''
+  108:             cor_bate = topo.cor == carta.cor
+  109:             tipo_bate = topo.tipo == carta.tipo
+  110:             eh_coringa = carta.cor == '*'
+[34m- 111:             return (cor_bate or tipo_bate or eh_coringa)[0m
+[32m+ 111:             return (cor_bate and tipo_bate and eh_coringa)[0m
+  112:         
+  113:         selecionadas = [\
+  114:             carta for \
+  115:             carta in self.cartas if \
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Topo de descarte: Carta(cor=azul, tipo=3)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Não há cartas possíveis de se jogar. Vamos comprar uma.
+Carta comprada incompatível.
+[0.03341 s] [32mkilled[0m by test_jogar_CT2 (test_uno2.TestUno)
+[36m   -[0m [#  31] LCR uno2: 
+--------------------------------------------------------------------------------
+  175:             
+  176:             
+  177:             eh_decimal = idx_carta_str.isdecimal()
+  178:             eh_valor_valido = \
+[34m- 179:                 (idx_carta_str and \[0m
+[32m+ 179:                 (idx_carta_str or \[0m
+  180:                 1 <= int(idx_carta_str) <= len(cartas_possiveis))
+  181:             
+  182:             if (eh_decimal and eh_valor_valido):
+  183:                 return cartas_possiveis[int(idx_carta_str) - 1]
+--------------------------------------------------------------------------------
+[0.02918 s] [31msurvived[0m
+[36m   -[0m [#  32] LCR uno2: 
+--------------------------------------------------------------------------------
+  178:             eh_valor_valido = \
+  179:                 (idx_carta_str and \
+  180:                 1 <= int(idx_carta_str) <= len(cartas_possiveis))
+  181:             
+[34m- 182:             if (eh_decimal and eh_valor_valido):[0m
+[32m+ 182:             if (eh_decimal or eh_valor_valido):[0m
+  183:                 return cartas_possiveis[int(idx_carta_str) - 1]
+  184:     
+  185:     def jogar(self, carta: Carta, monte_descarte: Pilha[Carta]) -> Pilha[Carta]:
+  186:         '''
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Topo de descarte: Carta(cor=azul, tipo=3)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Não há cartas possíveis de se jogar. Vamos comprar uma.
+Cartas possíveis:
+
+	1) Carta(cor=vermelho, tipo=3);
+Cartas possíveis
+
+	1) Carta(cor=vermelho, tipo=3);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=inverter);
+	2) Carta(cor=vermelho, tipo=pular);
+Cartas possíveis:
+
+	1) Carta(cor=vermelho, tipo=pular);
+Cartas possíveis
+
+	1) Carta(cor=vermelho, tipo=pular);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=*, tipo=coringa);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=*, tipo=coringa);
+Cartas possíveis
+
+	1) Carta(cor=*, tipo=coringa);
+[0.06284 s] [31msurvived[0m
+[36m   -[0m [#  33] ROR uno2: 
+--------------------------------------------------------------------------------
+   45:         self.cor = cor
+   46:         self.tipo = tipo
+   47:     
+   48:     def __eq__(self, other):
+[34m-  49:         return (self.cor, self.tipo) == (other.cor, other.tipo)[0m
+[32m+  49:         return (self.cor, self.tipo) != (other.cor, other.tipo)[0m
+   50:     
+   51:     def __repr__(self):
+   52:         return f'Carta(cor={self.cor}, tipo={self.tipo})'
+   53: 
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Topo de descarte: Carta(cor=azul, tipo=3)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Não há cartas possíveis de se jogar. Vamos comprar uma.
+Cartas possíveis:
+
+	1) Carta(cor=vermelho, tipo=3);
+Cartas possíveis
+
+	1) Carta(cor=vermelho, tipo=3);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=inverter);
+	2) Carta(cor=vermelho, tipo=pular);
+Cartas possíveis:
+
+	1) Carta(cor=vermelho, tipo=pular);
+Cartas possíveis
+
+	1) Carta(cor=vermelho, tipo=pular);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=*, tipo=coringa);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=*, tipo=coringa);
+Cartas possíveis
+
+	1) Carta(cor=*, tipo=coringa);
+[0.03560 s] [31msurvived[0m
+[36m   -[0m [#  34] ROR uno2: 
+--------------------------------------------------------------------------------
+  104:             :param topo: Carta do topo do monte de descarte
+  105:             :param carta: Carta da mão para comparação
+  106:             :return: Cor é igual, tipo é igual ou é coringa
+  107:             '''
+[34m- 108:             cor_bate = topo.cor == carta.cor[0m
+[32m+ 108:             cor_bate = topo.cor != carta.cor[0m
+  109:             tipo_bate = topo.tipo == carta.tipo
+  110:             eh_coringa = carta.cor == '*'
+  111:             return (cor_bate or tipo_bate or eh_coringa)
+  112:         
+--------------------------------------------------------------------------------
+[0.03460 s] [32mkilled[0m by test_jogar_CT2 (test_uno2.TestUno)
+[36m   -[0m [#  35] ROR uno2: 
+--------------------------------------------------------------------------------
+  105:             :param carta: Carta da mão para comparação
+  106:             :return: Cor é igual, tipo é igual ou é coringa
+  107:             '''
+  108:             cor_bate = topo.cor == carta.cor
+[34m- 109:             tipo_bate = topo.tipo == carta.tipo[0m
+[32m+ 109:             tipo_bate = topo.tipo != carta.tipo[0m
+  110:             eh_coringa = carta.cor == '*'
+  111:             return (cor_bate or tipo_bate or eh_coringa)
+  112:         
+  113:         selecionadas = [\
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Topo de descarte: Carta(cor=azul, tipo=3)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+[0.02537 s] [32mkilled[0m by test_jogar_CTM1 (test_uno2.TestUno)
+[36m   -[0m [#  36] ROR uno2: 
+--------------------------------------------------------------------------------
+  106:             :return: Cor é igual, tipo é igual ou é coringa
+  107:             '''
+  108:             cor_bate = topo.cor == carta.cor
+  109:             tipo_bate = topo.tipo == carta.tipo
+[34m- 110:             eh_coringa = carta.cor == '*'[0m
+[32m+ 110:             eh_coringa = carta.cor != '*'[0m
+  111:             return (cor_bate or tipo_bate or eh_coringa)
+  112:         
+  113:         selecionadas = [\
+  114:             carta for \
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Topo de descarte: Carta(cor=azul, tipo=3)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Topo de descarte: Carta(cor=vermelho, tipo=0)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+[0.02386 s] [32mkilled[0m by test_jogar_CTM1 (test_uno2.TestUno)
+[36m   -[0m [#  37] ROR uno2: 
+--------------------------------------------------------------------------------
+  176:             
+  177:             eh_decimal = idx_carta_str.isdecimal()
+  178:             eh_valor_valido = \
+  179:                 (idx_carta_str and \
+[34m- 180:                 1 <= int(idx_carta_str) <= len(cartas_possiveis))[0m
+[32m+ 180:                 1 >= int(idx_carta_str) <= len(cartas_possiveis))[0m
+  181:             
+  182:             if (eh_decimal and eh_valor_valido):
+  183:                 return cartas_possiveis[int(idx_carta_str) - 1]
+  184:     
+--------------------------------------------------------------------------------
+[0.01818 s] [31msurvived[0m
+[36m   -[0m [#  38] ROR uno2: 
+--------------------------------------------------------------------------------
+  176:             
+  177:             eh_decimal = idx_carta_str.isdecimal()
+  178:             eh_valor_valido = \
+  179:                 (idx_carta_str and \
+[34m- 180:                 1 <= int(idx_carta_str) <= len(cartas_possiveis))[0m
+[32m+ 180:                 1 < int(idx_carta_str) <= len(cartas_possiveis))[0m
+  181:             
+  182:             if (eh_decimal and eh_valor_valido):
+  183:                 return cartas_possiveis[int(idx_carta_str) - 1]
+  184:     
+--------------------------------------------------------------------------------
+[0.02396 s] [32mkilled[0m by test_jogar_CT2 (test_uno2.TestUno)
+[36m   -[0m [#  39] ROR uno2: 
+--------------------------------------------------------------------------------
+  176:             
+  177:             eh_decimal = idx_carta_str.isdecimal()
+  178:             eh_valor_valido = \
+  179:                 (idx_carta_str and \
+[34m- 180:                 1 <= int(idx_carta_str) <= len(cartas_possiveis))[0m
+[32m+ 180:                 1 <= int(idx_carta_str) >= len(cartas_possiveis))[0m
+  181:             
+  182:             if (eh_decimal and eh_valor_valido):
+  183:                 return cartas_possiveis[int(idx_carta_str) - 1]
+  184:     
+--------------------------------------------------------------------------------
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+
+	- Carta(cor=azul, tipo=1);
+	- Carta(cor=azul, tipo=inverter);
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Não há cartas a comprar. 1 momento...
+Topo de descarte: Carta(cor=azul, tipo=3)
+Suas cartas:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis:
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+Cartas possíveis
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+
+	1) Carta(cor=azul, tipo=8);
+	2) Carta(cor=azul, tipo=inverter);
+[0.04029 s] [32mkilled[0m by test_jogar_CT2 (test_uno2.TestUno)
+[36m   -[0m [#  40] ROR uno2: 
+--------------------------------------------------------------------------------
+  176:             
+  177:             eh_decimal = idx_carta_str.isdecimal()
+  178:             eh_valor_valido = \
+  179:                 (idx_carta_str and \
+[34m- 180:                 1 <= int(idx_carta_str) <= len(cartas_possiveis))[0m
+[32m+ 180:                 1 <= int(idx_carta_str) < len(cartas_possiveis))[0m
+  181:             
+  182:             if (eh_decimal and eh_valor_valido):
+  183:                 return cartas_possiveis[int(idx_carta_str) - 1]
+  184:     
+--------------------------------------------------------------------------------
+[0.01988 s] [32mkilled[0m by test_jogar_CTM1 (test_uno2.TestUno)
+[36m   -[0m [#  41] SCD uno2: 
+--------------------------------------------------------------------------------
+   17: 
+   18: 
+   19: class Pilha(Deque[R]):
+   20:     def __init__(self, objs):
+[34m-  21:         super().__init__(objs)[0m
+[32m+  21:         pass[0m
+   22:         self.pilha = deque(objs)
+   23:     
+   24:     def __len__(self) -> int:
+   25:         return len(self.pilha)
+--------------------------------------------------------------------------------
+[0.02361 s] [32mkilled[0m by test_comprar_CT4 (test_uno2.TestUno)
+[36m   -[0m [#  42] SCI uno2: 
+--------------------------------------------------------------------------------
+   21:         super().__init__(objs)
+   22:         self.pilha = deque(objs)
+   23:     
+   24:     def __len__(self) -> int:
+[34m-  25:         return len(self.pilha)[0m
+[34m-  26:     [0m
+[32m+  25:         super().__len__()[0m
+[32m+  26:         return len(self.pilha)[0m
+   27:     def topo(self) -> R:
+   28:         return self.pilha[0]
+   29:     
+   30:     def empilhar(self, obj: R):
+--------------------------------------------------------------------------------
+[0.01941 s] [31msurvived[0m
+[34m[*][0m Mutation score [35.94616 s]: [1m[34m76.2%[0m
+[36m   -[0m all: 42
+[36m   -[0m killed: 29 (69.0%)
+[36m   -[0m survived: 10 (23.8%)
+[36m   -[0m incompetent: 0 (0.0%)
+[36m   -[0m timeout: 3 (7.1%)

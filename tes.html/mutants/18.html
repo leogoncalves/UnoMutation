@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MutPy mutation report - mutation #18</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    
+<link href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPython.js" type="text/javascript"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+    window.setTimeout(function () {
+        
+        $('.line.number210').attr('title', 'COI');
+        
+    }, 0);
+</script>
+
+</head>
+<body>
+    <div class="container">
+        
+<div class="page-header">
+    <h1>Mutation #18</h1>
+</div>
+<h3>Details</h3>
+<ul>
+    <li>module - <code><module 'main2' from '/home/runner/Uno/main2.py'></code></li>
+    <li><span class="label label-success">killed</span> by <code>test_jogar_CT2 (test_main2.TestUno)</code></li>
+    
+    <li>duration - 0.019 s</li>
+    
+    
+    <li>tests run - 14</li>
+    
+</ul>
+
+<h3>Exception traceback</h3>
+<pre>Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/mock.py", line 1325, in patched
+    return func(*newargs, **newkeywargs)
+  File "/home/runner/Uno/test_main2.py", line 525, in test_jogar_CT2
+    monte_compra, monte_descarte = mao.jogar(
+  File "main2", line 212, in jogar
+  File "main2", line 134, in comprar
+  File "main2", line 44, in desempilhar
+IndexError: pop from an empty deque
+</pre>
+
+<h3>Mutations</h3>
+<ul>
+    
+    <li>COI - line 210</li>
+    
+</ul>
+<h3>Mutant</h3>
+<pre class="brush: python; first-line: 1; highlight: [210]; toolbar: false;">'''
+Grupo 01 - Trabalho UNO - Projeto de Teste 2020.2
+Jones Martins - DRE: 115149195
+Felipe Menescal - DRE: 113282298
+Larissa Galeno - DRE: 116083017
+Leonardo Gonçalves - DRE: 111337097
+'''
+
+import itertools
+from collections import deque, namedtuple
+from typing import List, TypeVar, Deque, Tuple, Optional
+import random
+import enum
+
+
+QTD_CARTAS_INICIAIS = 7
+JOGADORES = 3
+CORES_VALIDAS = ('amarelo', 'azul', 'verde', 'vermelho')
+topo_esta_ativo = False
+
+R = TypeVar('R')
+
+
+class Pilha(Deque[R]):
+    def __init__(self, objs):
+        super().__init__(objs)
+        self.pilha = deque(objs)
+    
+    def __len__(self) -> int:
+        return len(self.pilha)
+    
+    def topo(self) -> R:
+        copia = self.pilha[0]
+        return copia
+    
+    
+    
+    
+    
+    def empilhar(self, obj: R):
+        self.pilha.appendleft(obj)
+    
+    def desempilhar(self) -> R:
+        return self.pilha.popleft()
+    
+    def como_lista(self) -> List[R]:
+        return list(self.pilha)
+
+
+Carta = namedtuple('Carta', ['cor', 'tipo'])
+
+
+def monta_listagem_de_cartas(\
+    cartas: List[Carta], \
+    numerar: bool = False) -> \
+    str:
+    """
+    Monta listagem de cartas.
+    Exemplos:
+        Se lista de cartas estiver vazia:
+            Cartas: *vazio*
+        Se numerar = False:
+            Cartas:
+                - Carta('azul', '1');
+                - Carta('vermelho', '2');
+        Se numerar = False:
+            Cartas:
+                1) Carta('azul', '1');
+                2) Carta('vermelho', '2');
+
+    :param cartas: Cartas a listar
+    :param numerar: Numerar a listagem ou não?
+    :return: String da listagem de cartas
+    """
+    listagem = 'Cartas: '
+    if not cartas:
+        listagem += '*vazio*'
+    else:
+        for (i, carta) in enumerate(cartas, start=1):
+            inicio_de_linha = '-' if not numerar else f'{i})'
+            nova_linha = f'
+	{inicio_de_linha} {carta};'listagem += nova_linha
+    
+    return listagem
+
+
+class Jogador:
+    def __init__(self, cartas: List[Carta]):
+        self.cartas = cartas
+    
+    def selecionar(self, topo_descarte: Carta) -> List[Carta]:
+        '''
+        Seleciona as cartas na mão que podem ser jogadas.
+        :param topo_descarte: Topo da pilha de descarte.
+            É garantido que exista um topo.
+        :return: Lista de cartas selecionáveis
+        '''
+        
+        def filtro(topo: Carta, carta: Carta) -> bool:
+            '''
+            Verifica se cor bate ou se o número bate.
+            :param topo: Carta do topo do monte de descarte
+            :param carta: Carta da mão para comparação
+            :return: Cor é igual, tipo é igual ou é coringa
+            '''
+            cor_bate = topo.cor == carta.cor
+            tipo_bate = topo.tipo == carta.tipo
+            eh_coringa = carta.cor == '*'
+            return (cor_bate or tipo_bate or eh_coringa)
+        
+        selecionadas = [carta for carta in self.cartas if filtro(topo_descarte, carta)]
+        
+        return selecionadas
+    
+    def comprar(\
+        self, monte_compra: Pilha[Carta], monte_descarte: Pilha[Carta], quantidade: int):
+        
+        '''
+        Caso eu não consiga selecionar nenhuma carta,
+        preciso comprar uma (ou mais).
+        :param monte_compra: Monte de cartas de comprar
+        :param monte_descarte: Monte de cartas de descarte
+        :param quantidade: Quantidade de cartas a comprar
+        '''
+        for _ in range(quantidade):
+            
+            if not monte_compra:
+                print('Não há cartas a comprar. 1 momento...')
+                monte_compra = Pilha(
+                    random.sample(monte_descarte.como_lista(), len(monte_descarte)))
+                
+                monte_descarte = Pilha([monte_compra.desempilhar()])
+            
+            carta_comprada = monte_compra.desempilhar()
+            self.cartas.append(carta_comprada)
+        return (monte_compra, monte_descarte)
+    
+    def _escolhe_carta_possivel(\
+        self, cartas_possiveis: List[Carta]) -> \
+        Optional[Carta]:
+        '''
+        Escolhe uma carta das várias cartas possíveis.
+        Retorna None caso não tenham cartas, mas é esperado que se tenha.
+        :param cartas_possiveis: Lista de cartas possíveis
+        :return: Carta selecionada (ou None)
+        '''
+        if not cartas_possiveis:
+            return None
+        
+        idx_carta = None
+        listagem_de_cartas = monta_listagem_de_cartas(cartas_possiveis)
+        
+        while idx_carta is None:
+            print(listagem_de_cartas)
+            
+            idx_carta_str = input(
+                f'Selecione a carta [1, {len(cartas_possiveis)}]: ')
+            
+            
+            eh_decimal = idx_carta_str.isdecimal()
+            eh_valor_valido = (idx_carta_str and 1 <= int(idx_carta_str) <= len(
+                cartas_possiveis))
+            
+            if (eh_decimal and eh_valor_valido):
+                idx_carta = int(idx_carta_str) - 1
+        
+        return cartas_possiveis[idx_carta]
+    
+    def _descartar(self, carta: Carta, carta2b: Carta, monte_descarte: Pilha[Carta]):
+        '''
+        Tira uma carta da mão e coloca no monte de descarte.
+        :param carta: Carta selecionada
+        :param monte_descarte: Monte de descarte
+        '''
+        self.cartas.remove(carta2b)
+        return monte_descarte.empilhar(carta)
+    
+    def escolhe_cor_de_coringa(self):
+        '''
+        Escolhe uma das 4 cores de coringa.
+        :return: Cor escolhida
+        '''
+        cor_escolhida = None
+        while cor_escolhida not in CORES_VALIDAS:
+            cor_escolhida = input('Escolha uma cor: ').lower()
+            if cor_escolhida not in CORES_VALIDAS:
+                print(
+                    f'Cor inválida.
+Escolha uma entre {', '.join(CORES_VALIDAS)}.')
+        return cor_escolhida
+    
+    def jogar(self, monte_compra: Pilha[Carta], monte_descarte: Pilha[Carta]):
+        '''
+        Função principal da mão.
+        Seleciona uma carta da mão e joga.
+        Se não for possível selecionar uma carta da mão,
+        compra-se uma nova carta e tenta-se jogá-la novamente.
+        :param monte_compra: Monte de compras
+        :param monte_descarte: Monte de descarte
+        '''
+        global topo_esta_ativo
+        topo_descarte = monte_descarte.topo()
+        print(f'Topo de descarte: {topo_descarte}')
+        
+        print('Sua mão:')
+        cartas_ordenadas = sorted(self.cartas)
+        print(monta_listagem_de_cartas(cartas_ordenadas))
+        
+        cartas_possiveis = self.selecionar(topo_descarte)
+        while not ((not cartas_possiveis)):
+            print('Não há cartas possíveis de se jogar. Vamos comprar uma.')
+            (monte_compra, monte_descarte) = self.comprar(monte_compra, monte_descarte, quantidade=1)
+            
+            
+            cartas_possiveis = self.selecionar(topo_descarte)
+        
+        print('Cartas possíveis:')
+        print(monta_listagem_de_cartas(self.cartas, numerar=True))
+        
+        carta_escolhida = self._escolhe_carta_possivel(cartas_possiveis)
+        carta_2b_removed = carta_escolhida
+        if eh_carta_especial(carta_escolhida):
+            if carta_escolhida.tipo in ('coringa', '+4 coringa'):
+                cor_coringa = self.escolhe_cor_de_coringa()
+                carta_escolhida = carta_escolhida._replace(cor=cor_coringa)
+            
+            topo_esta_ativo = True
+        
+        self._descartar(carta_escolhida, carta_2b_removed, monte_descarte)
+        return (monte_compra, monte_descarte)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def eh_carta_especial(carta: Carta) -> bool:
+    return carta.tipo in ('inverter', 'pular', '+2', 'coringa', '+4 coringa')</pre>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+[34m[*][0m Start mutation process:
+[36m   -[0m targets: main2.py
+[36m   -[0m tests: test_main2.py
+Cor inválida.
+Escolha uma entre amarelo, azul, verde, vermelho.
+Cartas: 
+	- Carta(cor='azul', tipo='1');
+	- Carta(cor='azul', tipo='inverter');
+
+	- Carta(cor='azul', tipo='1');
+	- Carta(cor='azul', tipo='inverter');
+[34m[*][0m [1m[31mTests failed:[0m
+[36m   -[0m fail in test_MLC_CTM1 (test_main2.TestUno) -   	- Carta(cor='azul', tipo='inverter');
